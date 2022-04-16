@@ -11,6 +11,7 @@ export const UserListContainer = styled.div`
     height: 20rem;
     border-radius: 0.5rem;
     background: #ffffff;
+    border: #e5e7eb;
     position: relative;
     overflow: hidden;
     cursor: pointer;

@@ -10,6 +10,7 @@ import Login from "./components/login/Index";
 import Messages from "./pages/Messages";
 import ChatScreen from "./pages/ChatScreen";
 import styled from "styled-components";
+import UserLists from "./pages/UserLists";
 
 const PageStyle = styled.div`
   min-height: 100vh;
@@ -41,7 +42,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {user ? <UserList /> : <Login />}
+            {user ? <UserLists /> : <Login />}
           </Route>
           <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
           <Route path="/messages/:id" component={ChatScreen} />
