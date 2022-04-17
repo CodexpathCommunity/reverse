@@ -8,9 +8,8 @@ const {
   signup,
   signin,
   refreshToken,
+  createUser,
 } = require("../controllers/auth.controller");
-
-const googleController = require("../controllers/google.controller");
 
 router.post(
   "/signup",
@@ -21,6 +20,6 @@ router.post("/signin", signin);
 
 router.post("/refreshtoken", refreshToken);
 
-router.post("/google", googleController.createUser);
+router.post("/google", createUser);
 
 module.exports = router;

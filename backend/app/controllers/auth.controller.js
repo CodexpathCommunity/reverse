@@ -1,6 +1,8 @@
 const config = require("../config/auth.config");
 const db = require("../models");
 const { user: User, role: Role, refreshToken: RefreshToken } = db;
+const { createUserService } = require("../services/user.service");
+const sse = require("../../sse");
 
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
@@ -146,5 +148,18 @@ exports.refreshToken = async (req, res) => {
     });
   } catch (err) {
     return res.status(500).send({ message: err });
+  }
+};
+
+exports.createUser = async (req, res) => {
+  const result = await createUserService(req.body);
+  res.status(result.statusCode).json(result.data);
+  if (!result.error) {
+    //   emit post event
+    try {
+      sse.send(result.data, `users`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

@@ -6,9 +6,7 @@ const { Chat } = require("./app/models/chats");
 // load dotenv file
 dotenv.config({ path: "app/config/config.env" });
 
-const authRoute = require("./app/routes/auth.routes");
-const userRoute = require("./app/routes/user.routes");
-const chatRoute = require("./app/routes/chatRoutes");
+const rootRoute = require("./app/routes/index.routes");
 
 // connection to db
 connectDB();
@@ -44,9 +42,7 @@ app.use(function (req, res, next) {
 });
 
 //MOUNT ROUTE
-app.use("/api/v1/test", userRoute);
-app.use("/api/v1/chat", chatRoute);
-app.use("/api/v1/auth", authRoute);
+app.use("/api/v1", rootRoute);
 
 const PORT = process.env.NODE_ENV === "production" ? 8080 : 5000;
 
