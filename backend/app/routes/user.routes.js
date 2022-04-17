@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const authJwt = require("../middleware/authJwt");
-const controller = require("../controllers/user.controller");
+const { findAllUsers } = require("../controllers/user.controller");
 
-router.get("/all", controller.findAllUser);
+router.get("/:id", findAllUsers);
 
 module.exports = router;

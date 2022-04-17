@@ -11,10 +11,14 @@ const reduceDuplicateArray = (arr) =>
 const slice = createSlice({
   name: "user",
   initialState: {
+    loggedinUser: {},
     users: [],
   },
 
   reducers: {
+    setLoggedinUser: (state, action) => {
+      state.loggedinUser = action.payload;
+    },
     addUser: (state, action) => {
       state.users = reduceDuplicateArray([...state.users, action.payload]);
     },
@@ -25,4 +29,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { addUser, addUsers } = slice.actions;
+export const { addUser, addUsers, setLoggedinUser } = slice.actions;

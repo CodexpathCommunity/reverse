@@ -7,7 +7,7 @@ const chatRoute = require("./chat.routes");
 const router = express.Router();
 
 //MOUNT ROUTE
-router.use("/user", userRoute);
+router.use("/users", userRoute);
 router.use("/chat", chatRoute);
 router.use("/auth", authRoute);
 

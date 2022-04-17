@@ -155,7 +155,7 @@ exports.createUser = async (req, res) => {
   const result = await createUserService(req.body);
   res.status(result.statusCode).json(result.data);
   if (!result.error && result.data.statusCode === 201) {
-    //   emit post event
+    //   emit post event3
     try {
       sse.send(result.data, `users`);
     } catch (error) {

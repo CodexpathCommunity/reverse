@@ -12,6 +12,8 @@ import ChatScreen from "./pages/ChatScreen";
 import styled from "styled-components";
 import UserLists from "./pages/UserLists";
 import { postCurrentGoogleUser } from "./services/user.service";
+import { setLoggedinUser } from "./store/user";
+import { useDispatch } from "react-redux";
 
 const PageStyle = styled.div`
   background: whitesmoke;
@@ -23,6 +25,17 @@ const PageStyle = styled.div`
 
 function App() {
   const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+
+  const handleUserUpdate = async (user) => {
+    try {
+      const userData = await postCurrentGoogleUser(user);
+      console.log(userData);
+      dispatch(setLoggedinUser(userData));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -34,7 +47,7 @@ function App() {
           uid: authUser.uid,
         };
         setUser(googleUser);
-        postCurrentGoogleUser(googleUser);
+        handleUserUpdate(googleUser);
       } else {
         //user is logged out
         setUser(null);
