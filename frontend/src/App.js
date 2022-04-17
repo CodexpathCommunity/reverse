@@ -30,8 +30,7 @@ function App() {
   const handleUserUpdate = async (user) => {
     try {
       const userData = await postCurrentGoogleUser(user);
-      console.log(userData);
-      dispatch(setLoggedinUser(userData));
+      dispatch(setLoggedinUser(userData.data));
     } catch (error) {
       console.log(error);
     }

@@ -9,7 +9,7 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
         data: user,
         error: false,
         message: "success",
-        statusCode: 302,
+        statusCode: 200,
       };
     } else {
       const newUser = new GoogleUser({
