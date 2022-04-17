@@ -1,15 +1,6 @@
-exports.allAccess = (req, res) => {
-  res.status(200).send("Public Content.");
-};
+const { findAllUserService } = require("../services/user.service");
 
-exports.userBoard = (req, res) => {
-  res.status(200).send("User Content.");
-};
-
-exports.adminBoard = (req, res) => {
-  res.status(200).send("Admin Content");
-};
-
-exports.moderatorBoard = (req, res) => {
-  res.status(200).send("Moderator Content");
+exports.findAllUser = async (req, res) => {
+  const result = await findAllUserService();
+  res.status(result.statusCode).json(result.data);
 };

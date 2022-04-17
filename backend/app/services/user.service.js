@@ -9,7 +9,7 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
         data: user,
         error: false,
         message: "success",
-        statusCode: 200,
+        statusCode: 302,
       };
     } else {
       const newUser = new GoogleUser({
@@ -25,7 +25,7 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
         data: savedUser,
         error: false,
         message: "success",
-        statusCode: 200,
+        statusCode: 201,
       };
     }
   } catch (error) {
@@ -38,6 +38,26 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
   }
 };
 
+const findAllUserService = async () => {
+  try {
+    const users = await GoogleUser.find();
+    return {
+      data: users,
+      error: false,
+      message: "success",
+      statusCode: 200,
+    };
+  } catch (error) {
+    return {
+      data: {},
+      error: true,
+      message: "sorry an error occurred",
+      statusCode: 500,
+    };
+  }
+};
+
 module.exports = {
   createUserService,
+  findAllUserService,
 };
