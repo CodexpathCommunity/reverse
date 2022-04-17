@@ -16,7 +16,20 @@ export const UserListContainer = styled.div`
     overflow: hidden;
     cursor: pointer;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .user-list-img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .user-list-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
   }
 `;

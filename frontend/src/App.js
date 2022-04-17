@@ -42,7 +42,7 @@ function App() {
         const googleUser = {
           displayName: authUser.displayName,
           email: authUser.email,
-          photoURL: authUser.photoURL,
+          photoUrl: authUser.photoURL,
           uid: authUser.uid,
         };
         setUser(googleUser);
