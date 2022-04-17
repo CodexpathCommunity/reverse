@@ -18,10 +18,7 @@ import {
 
 function SignUp({ setPage }) {
   const GoogleLogin = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((user) => console.log(user))
-      .catch(alert);
+    auth.signInWithPopup(provider).catch(alert);
   };
 
   return (

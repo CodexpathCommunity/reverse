@@ -40,8 +40,7 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
 
 const findAllUserService = async (id) => {
   try {
-    //find google users that is not id
-    const users = await GoogleUser.find({ _id: { $ne: id } });
+    const users = await GoogleUser.find({ uid: { $ne: id } });
 
     return {
       data: users,

@@ -22,10 +22,7 @@ function SignIn({ setPage }) {
   const GoogleLogin = () => {
     auth
       .signInWithPopup(provider)
-      .then((user, err) => {
-        console.log(user);
-        !err && history.push("/messages");
-      })
+
       .catch(alert);
   };
 
