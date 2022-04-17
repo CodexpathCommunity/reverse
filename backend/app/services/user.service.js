@@ -40,5 +40,4 @@ const createUserService = async ({ displayName, email, photoUrl, uid }) => {
 
 module.exports = {
   createUserService,
-  f,
 };

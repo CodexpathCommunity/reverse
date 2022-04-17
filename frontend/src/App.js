@@ -13,9 +13,11 @@ import styled from "styled-components";
 import UserLists from "./pages/UserLists";
 
 const PageStyle = styled.div`
-  min-height: 100vh;
-  width: 100%;
   background: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 `;
 
 function App() {
@@ -26,7 +28,6 @@ function App() {
       if (authUser) {
         console.log(authUser);
         setUser(authUser);
-        f;
       } else {
         //user is logged out
         setUser(null);
