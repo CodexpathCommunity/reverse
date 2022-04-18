@@ -18,16 +18,6 @@ const MessageSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    senderName: {
-      firstName: {
-        type: String,
-        required: true,
-      },
-      lastName: {
-        type: String,
-        required: true,
-      },
-    },
   },
   { timestamps: true }
 );
