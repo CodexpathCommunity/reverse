@@ -28,3 +28,25 @@ const createMessageService = async (message) => {
     };
   }
 };
+
+const getConversationMessagesService = async (req) => {
+  try {
+    const messages = await Message.find({
+      conversationId: req.params.conversationId,
+    });
+    return {
+      data: messages,
+      ...successOptions,
+    };
+  } catch (error) {
+    return {
+      data: {},
+      ...errorOptions,
+    };
+  }
+};
+
+module.exports = {
+  createMessageService,
+  getConversationMessagesService,
+};
