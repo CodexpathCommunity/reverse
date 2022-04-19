@@ -31,7 +31,7 @@ export const sendDirectMessage = (message) => {
 };
 
 export const sendMessageToUser =
-  ({ recieverSlug, senderSlug, lastName, firstName, text, link, quote }) =>
+  ({ recieverSlug, senderSlug, text }) =>
   async (dispatch) => {
     try {
       let activeConversation = await checkifConversationExist(
