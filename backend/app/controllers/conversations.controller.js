@@ -1,4 +1,3 @@
-const sse = require("../../sse");
 const {
   createConversationService,
   updateConversationService,
@@ -10,27 +9,11 @@ const {
 exports.createConversation = async (req, res) => {
   const result = await createConversationService(req);
   res.status(result.statusCode).json(result.data);
-  if (!result.error) {
-    //   emit post event
-    try {
-      sse.send(result.data, `conversation_${result.data.lastReciever}`);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 };
 
 exports.updateConversation = async (req, res) => {
   const result = await updateConversationService(req);
   res.status(result.statusCode).json(result.data);
-  if (!result.error) {
-    //   emit post event
-    try {
-      sse.send(result.data, `conversation_${result.data.lastReciever}`);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 };
 
 exports.getConversationById = async (req, res) => {
